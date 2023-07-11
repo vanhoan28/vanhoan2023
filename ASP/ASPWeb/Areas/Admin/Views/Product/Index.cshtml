@@ -1,0 +1,142 @@
+﻿
+@model IEnumerable<ASPWeb.Context.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* CSS thẻ bao bọc nội dung gồm hình ảnh và text */
+    .card {
+        padding: 20px;
+        border: 2px solid #ccc;
+        background: #f1f1f1;
+    }
+   
+   
+        
+</style>
+
+
+<script>
+    $(document).ready(function () {
+    $('#example').DataTable();
+});
+</script>
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container mt-auto ">
+            <h2>Danh Sách Sản Phẩm</h2>
+
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+            @using (Html.BeginForm("Index","Product",FormMethod.Get))
+            {
+                <p>
+                    Tìm tên sản phẩm: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                    <input type="submit" value="Tìm kiếm" />
+                </p>
+            }
+            <div class="table-responsive ">
+
+                <table id="example" class="table table-striped" style="width:100%;">
+
+                    <tr>
+                        <th>
+                            Chỉnh Sửa
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Avarta)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CategoryID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ShortDes)
+                        </th>
+                        @*<th>
+                            @Html.DisplayNameFor(model => model.FullDescription)
+                        </th>*@
+                        <th>
+                            @Html.DisplayNameFor(model => model.Price)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TypeID)
+                        </th>
+                        @*<th>
+                            @Html.DisplayNameFor(model => model.Slug)
+                        </th>*@
+                        <th>
+                            @Html.DisplayNameFor(model => model.BrandID)
+                        </th>
+                        @*<th>
+                            @Html.DisplayNameFor(model => model.Deleted)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ShowOnHomePage)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DisplayOrder)
+                        </th>*@
+                        <th></th>
+                    </tr>
+
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            </td>
+                            <td>
+                                <p> @Html.DisplayFor(modelItem => item.Name)</p>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Avarta)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CategoryID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ShortDes)
+                            </td>
+                            @*<td>
+                                <p> @Html.DisplayFor(modelItem => item.FullDescription)</p>
+                            </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TypeID)
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.Slug)
+                            </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BrandID)
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.Deleted)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ShowOnHomePage)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DisplayOrder)
+                            </td>*@
+
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </section>
+</div>

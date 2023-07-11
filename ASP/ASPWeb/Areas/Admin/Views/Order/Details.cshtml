@@ -1,0 +1,64 @@
+﻿@model ASPWeb.Context.Order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container mt-auto ">
+            <h2>Details</h2>
+
+            <div>
+                <h4>Order</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ProductID)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ProductID)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Price)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CreateOnUtc)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CreateOnUtc)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        </div>
+    </section>
+</div>
